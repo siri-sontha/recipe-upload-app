@@ -1,6 +1,13 @@
-
+import Model from "./Model"
+import { useState } from "react"
 
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false)
+
+    const checkLogin = () => {
+        setIsOpen(true)
+    }
+
     return (
         <>
             <header>
@@ -8,10 +15,11 @@ export default function Navbar() {
                 <ul>
                     <li>Home</li>
                     <li>My Recipe</li>
-                    <li>Favourites</li>
-                    <li>Login</li>
+                    <li>Favorites</li>
+                    <li onClick={checkLogin}>Login</li>
                 </ul>
             </header>
+            { (isOpen) && <Model onClose={()=>setIsOpen(false)} />}
         </>
     )
 }
