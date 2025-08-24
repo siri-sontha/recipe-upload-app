@@ -1,11 +1,11 @@
 import Navbar from "./Navbar"
 
-export default function Model({onClose}){
+export default function Model({children, onClose}){
     return(
         <>
             <div className="backdrop" onClick={onClose}></div>
                 <dialog className="modal" open>
-                    <h1>Hello</h1>
+                    {children}
                 </dialog>
         </>
     )

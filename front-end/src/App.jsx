@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import axios from 'axios'
 
 import Home from './pages/Home.jsx'
+import AddFoodRecipe from './pages/AddFoodRecipe.jsx'
 import MainNavigation from './components/MainNavigation.jsx'
 
 const getAllRecipes = async () => {
@@ -18,7 +19,10 @@ const router = createBrowserRouter([
     {
         path: '/', element: <MainNavigation />, children:
             [
-                { path: '/', element: <Home />, loader: getAllRecipes }
+                { path: '/', element: <Home />, loader: getAllRecipes },
+                { path: '/myRecipe', element: <Home /> },
+                { path: '/favRecipe', element: <Home /> },
+                { path: '/addRecipe', element: <AddFoodRecipe /> }
             ]
     }
 ])
